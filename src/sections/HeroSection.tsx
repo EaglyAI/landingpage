@@ -72,7 +72,7 @@ export default function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => scrollToSection('features')}
+            onClick={() => scrollToSection('bookings')}
             className="border-white/20 text-text-primary hover:bg-white/5 font-medium px-8 py-6 rounded-full text-base backdrop-blur-sm"
           >
             <Play className="mr-2 w-5 h-5" />
