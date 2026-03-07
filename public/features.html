@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Features | Eagly</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: #f4f7ff;
+        background: linear-gradient(rgba(8, 10, 20, 0.82), rgba(8, 10, 20, 0.88)), url('/starfield-bg.jpg') center/cover fixed;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 56px 24px 72px;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+      p.lead {
+        margin: 0 0 32px;
+        color: #b6bed3;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        color: #c7d1ff;
+        text-decoration: none;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        padding: 18px;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 0 0 10px;
+      }
+      ul { margin: 0; padding-left: 18px; color: #d8deef; }
+      li { margin: 6px 0; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <a class="back" href="/">← Back to main page</a>
+      <h1>All Features</h1>
+      <p class="lead">The complete Eagly capability set for service businesses.</p>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Customer communication</h2>
+          <ul>
+            <li>AI receptionist for calls and text</li>
+            <li>Missed-call recovery</li>
+            <li>FAQ and quote pre-qualification</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Booking and scheduling</h2>
+          <ul>
+            <li>Live availability checks</li>
+            <li>Automatic appointment booking</li>
+            <li>Reschedule and reminder flows</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Job operations</h2>
+          <ul>
+            <li>Team assignment and routing</li>
+            <li>Job status tracking</li>
+            <li>Field notes and completion updates</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Payments and invoicing</h2>
+          <ul>
+            <li>Invoice creation and delivery</li>
+            <li>Online payment links</li>
+            <li>Payment reminders and status tracking</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Marketing and retention</h2>
+          <ul>
+            <li>Review request campaigns</li>
+            <li>Rebooking and follow-up campaigns</li>
+            <li>Lead source and conversion tracking</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Owner command center</h2>
+          <ul>
+            <li>Natural language business control</li>
+            <li>Daily performance summaries</li>
+            <li>Actionable AI recommendations</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
