@@ -130,7 +130,7 @@ export default function OwnerSection() {
             className="w-full lg:w-[430px] glass-panel rounded-2xl p-8"
           >
             <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary leading-tight mb-5">
-              You instruct. AI executes.
+              You instruct. Eagly executes.
             </h2>
 
             <p className="text-base md:text-lg text-text-secondary leading-relaxed mb-8">
