@@ -52,12 +52,6 @@ export default function Navigation() {
           >
             Pricing
           </button>
-          <button
-            onClick={() => scrollToSection('signup')}
-            className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
-          >
-            Security
-          </button>
         </div>
 
         {/* CTA */}
