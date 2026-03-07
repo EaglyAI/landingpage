@@ -71,3 +71,20 @@ export default defineConfig([
   },
 ])
 ```
+
+## Deploy To GitHub Pages (Custom Domain)
+
+This repo is configured to deploy from GitHub Actions via `.github/workflows/deploy-pages.yml`.
+
+1. Push to `main`.
+2. In GitHub: `Settings -> Pages -> Source`, select `GitHub Actions`.
+3. In GitHub: `Settings -> Pages -> Custom domain`, set `eagly.ai`.
+4. In DNS for `eagly.ai`, point apex `@` to GitHub Pages IPs:
+   - `185.199.108.153`
+   - `185.199.109.153`
+   - `185.199.110.153`
+   - `185.199.111.153`
+5. Optional but recommended:
+   - Add `www` as `CNAME -> <your-github-username>.github.io`
+   - Redirect `www` to `eagly.ai` at your DNS provider
+6. Enable `Enforce HTTPS` in GitHub Pages after DNS finishes propagating.
