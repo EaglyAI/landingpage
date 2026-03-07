@@ -50,9 +50,14 @@ export default function HeroSection() {
           The AI that runs your business.
         </h1>
 
-        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-          Answer calls, book jobs, send invoices, collect payments, and follow up
-          with customers — automatically.
+        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-4 leading-relaxed">
+          Answer calls, book jobs, send invoices, collect payments, and run
+          marketing — automatically.
+        </p>
+
+        <p className="text-sm md:text-base text-text-secondary/90 max-w-3xl mx-auto mb-10 leading-relaxed">
+          Built for cleaning companies, landscapers, plumbers, HVAC services,
+          and other service businesses.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
