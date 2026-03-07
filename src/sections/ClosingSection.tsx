@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap, ExternalLink } from 'lucide-react';
+import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap, ExternalLink, Users, Layers } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +11,18 @@ type FeatureCategory = {
   title: string;
   description: string;
   items: string[];
+};
+
+type Plan = {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  target: string[];
+  includes: string[];
+  limits: string[];
+  cta: string;
+  highlighted: boolean;
 };
 
 export default function ClosingSection() {
@@ -119,22 +131,23 @@ export default function ClosingSection() {
     },
   ];
 
-  const plans = [
-    {
-      name: 'Free',
-      price: '$0',
-      period: '/mo',
-      description: 'For trying Eagly and handling the basics',
-      features: ['AI receptionist', 'Up to 25 monthly conversations', 'Basic booking flow', 'Email support'],
-      cta: 'Get started',
-      highlighted: false,
-    },
+  const plans: Plan[] = [
     {
       name: 'Starter',
       price: '$99',
       period: '/mo',
-      description: 'For solo operators ready to automate daily tasks',
-      features: ['Unlimited conversations', 'Auto-booking + reminders', 'Payments and invoices', 'Website booking widget'],
+      description: 'Built for solo operators and early-stage businesses.',
+      target: ['solo operators', 'early-stage businesses'],
+      includes: [
+        'AI receptionist',
+        'missed call recovery',
+        'booking & scheduling',
+        'CRM',
+        'invoices & payment links',
+        'review requests',
+        'AI website',
+      ],
+      limits: ['1 user', '1 phone number', '~1,000 conversations'],
       cta: 'Start Starter',
       highlighted: false,
     },
@@ -142,18 +155,38 @@ export default function ClosingSection() {
       name: 'Growth',
       price: '$249',
       period: '/mo',
-      description: 'For growing teams who want stronger automation',
-      features: ['Everything in Starter', 'Review and follow-up automation', 'Team routing and assignment', 'Performance insights'],
+      description: 'Most customers land here for deeper automation and team support.',
+      target: ['growing service teams', 'operators scaling beyond manual workflows'],
+      includes: [
+        'Everything in Starter',
+        'AI voice answering',
+        'automations',
+        'marketing campaigns',
+        'multi-user',
+        'employee scheduling',
+        'analytics',
+        'integrations',
+      ],
+      limits: ['5 users', '5,000 conversations'],
       cta: 'Start Growth',
       highlighted: true,
     },
     {
-      name: 'Autopilot',
+      name: 'Pro',
       price: '$499',
       period: '/mo',
-      description: 'For businesses wanting full AI-operated workflows',
-      features: ['Everything in Growth', 'Advanced workflow automations', 'Priority support', 'Dedicated onboarding'],
-      cta: 'Start Autopilot',
+      description: 'For businesses doing $1M+ revenue and managing complex operations.',
+      target: ['businesses doing $1M+ revenue'],
+      includes: [
+        'Everything in Growth',
+        'dispatch & route optimization',
+        'multi-location support',
+        'advanced marketing automation',
+        'advanced analytics',
+        'priority support',
+      ],
+      limits: ['20 users', '20,000 conversations'],
+      cta: 'Start Pro',
       highlighted: false,
     },
   ];
@@ -166,6 +199,7 @@ export default function ClosingSection() {
           backgroundImage: 'url(/starfield-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
         <div className="absolute inset-0 bg-space-black/70" />
@@ -214,10 +248,10 @@ export default function ClosingSection() {
       <div id="pricing" className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 mb-24 scroll-mt-28">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary mb-4">Simple pricing</h2>
-          <p className="text-lg text-text-secondary">Start free. Upgrade when you are ready.</p>
+          <p className="text-lg text-text-secondary">Choose the plan that matches your stage.</p>
         </div>
 
-        <div ref={pricingRef} className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div ref={pricingRef} className="grid lg:grid-cols-3 gap-6">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -227,7 +261,7 @@ export default function ClosingSection() {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <div className="inline-flex items-center gap-1.5 bg-indigo-500 text-white text-xs font-medium px-3 py-1 rounded-full">
                     <Sparkles className="w-3 h-3" />
-                    Most Popular
+                    Most Popular ⭐
                   </div>
                 </div>
               )}
@@ -236,15 +270,44 @@ export default function ClosingSection() {
                 <span className="font-display font-bold text-3xl text-text-primary">{plan.price}</span>
                 <span className="text-text-secondary">{plan.period}</span>
               </div>
-              <p className="text-sm text-text-secondary mb-6">{plan.description}</p>
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((feature, fIndex) => (
-                  <li key={fIndex} className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-sm text-text-primary">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm text-text-secondary mb-5">{plan.description}</p>
+
+              <div className="mb-5">
+                <p className="text-xs uppercase tracking-wide text-text-secondary/80 mb-2">Target</p>
+                <ul className="space-y-1.5">
+                  {plan.target.map((item, tIndex) => (
+                    <li key={tIndex} className="text-sm text-text-primary flex items-start gap-2">
+                      <Users className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-5">
+                <p className="text-xs uppercase tracking-wide text-text-secondary/80 mb-2">Includes</p>
+                <ul className="space-y-2">
+                  {plan.includes.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center gap-3">
+                      <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      <span className="text-sm text-text-primary">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-xs uppercase tracking-wide text-text-secondary/80 mb-2">Limits</p>
+                <ul className="space-y-1.5">
+                  {plan.limits.map((limit, lIndex) => (
+                    <li key={lIndex} className="text-sm text-text-secondary flex items-start gap-2">
+                      <Layers className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                      {limit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <Button
                 variant={plan.highlighted ? 'default' : 'outline'}
                 onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}

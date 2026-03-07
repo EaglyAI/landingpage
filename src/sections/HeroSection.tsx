@@ -38,6 +38,7 @@ export default function HeroSection() {
           backgroundImage: 'url(/starfield-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-space-black/30 via-transparent to-space-black/60" />
