@@ -5,17 +5,23 @@ type IndustryPageProps = {
   data: IndustryPageData;
 };
 
+const setMetaDescription = (description: string) => {
+  let metaDescription = document.querySelector('meta[name="description"]');
+
+  if (!metaDescription) {
+    metaDescription = document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    document.head.appendChild(metaDescription);
+  }
+
+  metaDescription.setAttribute('content', description);
+};
+
 function IndustryPage({ data }: IndustryPageProps) {
   useEffect(() => {
     document.title = data.seoTitle;
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', data.seoDescription);
-    }
+    setMetaDescription(data.seoDescription);
   }, [data.seoDescription, data.seoTitle]);
-
-  const industryLabel = data.industryName.toLowerCase();
 
   return (
     <div className="relative min-h-screen bg-space-black text-foreground">
@@ -23,9 +29,9 @@ function IndustryPage({ data }: IndustryPageProps) {
       <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-16 md:gap-12 md:px-10">
         <section className="glass-panel rounded-3xl p-8 md:p-12">
           <p className="mb-4 text-sm uppercase tracking-[0.24em] text-muted-foreground">Industry solutions</p>
-          <h1 className="text-balance text-4xl font-semibold md:text-6xl">AI that runs {industryLabel} businesses.</h1>
+          <h1 className="text-balance text-4xl font-semibold md:text-6xl">AI that runs {data.heroIndustryLabel} businesses.</h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Built for service teams that need faster response times, cleaner operations, and more booked jobs.
+            Built for {data.industryName.toLowerCase()} teams that need faster response times, cleaner operations, and more booked jobs.
           </p>
           <a
             href="/#contact"

@@ -1,6 +1,8 @@
 export type IndustryPageData = {
   industryName: string;
+  heroIndustryLabel: string;
   slug: string;
+  routePath: string;
   seoTitle: string;
   seoDescription: string;
   problems: string[];
@@ -26,10 +28,16 @@ const helpBlocks = [
   },
 ] as const;
 
+export const industryRoutePrefix = '/industries/';
+
+const buildRoutePath = (slug: string) => `${industryRoutePrefix}${slug}`;
+
 export const industryPageData: Record<string, IndustryPageData> = {
   cleaning: {
-    industryName: 'cleaning',
+    industryName: 'Cleaning',
+    heroIndustryLabel: 'cleaning',
     slug: 'cleaning',
+    routePath: buildRoutePath('cleaning'),
     seoTitle: 'AI for Cleaning Businesses | Eagly',
     seoDescription: 'Eagly helps cleaning businesses answer leads, auto-book appointments, collect payments, and automate follow-ups.',
     problems: [
@@ -46,8 +54,10 @@ export const industryPageData: Record<string, IndustryPageData> = {
     ],
   },
   landscaping: {
-    industryName: 'landscaping',
+    industryName: 'Landscaping',
+    heroIndustryLabel: 'landscaping',
     slug: 'landscaping',
+    routePath: buildRoutePath('landscaping'),
     seoTitle: 'AI for Landscaping Companies | Eagly',
     seoDescription: 'Eagly helps landscaping teams automate lead response, job booking, billing, and repeat service follow-ups.',
     problems: [
@@ -64,8 +74,10 @@ export const industryPageData: Record<string, IndustryPageData> = {
     ],
   },
   plumbing: {
-    industryName: 'plumbing',
+    industryName: 'Plumbing',
+    heroIndustryLabel: 'plumbing',
     slug: 'plumbing',
+    routePath: buildRoutePath('plumbing'),
     seoTitle: 'AI for Plumbing Businesses | Eagly',
     seoDescription: 'Eagly helps plumbing businesses manage urgent calls, automate scheduling, speed up payments, and retain customers.',
     problems: [
@@ -82,8 +94,10 @@ export const industryPageData: Record<string, IndustryPageData> = {
     ],
   },
   'pest-control': {
-    industryName: 'pest control',
+    industryName: 'Pest Control',
+    heroIndustryLabel: 'pest control',
     slug: 'pest-control',
+    routePath: buildRoutePath('pest-control'),
     seoTitle: 'AI for Pest Control Businesses | Eagly',
     seoDescription: 'Eagly helps pest control companies automate lead handling, route-ready booking, billing, and treatment follow-ups.',
     problems: [
@@ -101,7 +115,9 @@ export const industryPageData: Record<string, IndustryPageData> = {
   },
   hvac: {
     industryName: 'HVAC',
+    heroIndustryLabel: 'HVAC',
     slug: 'hvac',
+    routePath: buildRoutePath('hvac'),
     seoTitle: 'AI for HVAC Companies | Eagly',
     seoDescription: 'Eagly helps HVAC businesses capture service calls, automate booking, accelerate payments, and increase recurring maintenance.',
     problems: [
@@ -118,8 +134,10 @@ export const industryPageData: Record<string, IndustryPageData> = {
     ],
   },
   electricians: {
-    industryName: 'electrician',
+    industryName: 'Electricians',
+    heroIndustryLabel: 'electrical',
     slug: 'electricians',
+    routePath: buildRoutePath('electricians'),
     seoTitle: 'AI for Electricians | Eagly',
     seoDescription: 'Eagly helps electricians automate incoming calls, booking, invoicing, and follow-ups so every lead is captured.',
     problems: [
@@ -139,13 +157,13 @@ export const industryPageData: Record<string, IndustryPageData> = {
 
 export const howEaglyHelps = helpBlocks;
 
-export const industryRoutePrefix = '/industries/';
+export const industryRoutes = Object.values(industryPageData).map((industry) => industry.routePath);
 
 export const getIndustryByPath = (pathname: string) => {
   if (!pathname.startsWith(industryRoutePrefix)) {
     return null;
   }
 
-  const slug = pathname.slice(industryRoutePrefix.length).replace(/\/$/, '');
+  const slug = pathname.slice(industryRoutePrefix.length).replace(/\/+$/, '');
   return industryPageData[slug] ?? null;
 };
