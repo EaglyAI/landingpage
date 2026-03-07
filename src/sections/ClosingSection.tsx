@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap, ExternalLink, Users, Layers } from 'lucide-react';
+import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap, ExternalLink, Users, Layers, Building2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +11,11 @@ type FeatureCategory = {
   title: string;
   description: string;
   items: string[];
+};
+
+type Industry = {
+  name: string;
+  description: string;
 };
 
 type Plan = {
@@ -28,6 +33,7 @@ type Plan = {
 export default function ClosingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
+  const industriesRef = useRef<HTMLDivElement>(null);
   const pricingRef = useRef<HTMLDivElement>(null);
   const signupRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState('');
@@ -48,6 +54,21 @@ export default function ClosingSection() {
           stagger: 0.06,
           scrollTrigger: {
             trigger: featuresRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+
+      gsap.fromTo(
+        industriesRef.current?.children || [],
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: industriesRef.current,
             start: 'top 80%',
             toggleActions: 'play none none reverse',
           },
@@ -152,6 +173,15 @@ export default function ClosingSection() {
       description: 'Bring in more business automatically.',
       items: ['Review request campaigns', 'Simple website with booking', 'Lead source tracking'],
     },
+  ];
+
+  const industries: Industry[] = [
+    { name: 'Cleaning Services', description: 'Handle inbound calls, dispatch faster, and automate follow-ups.' },
+    { name: 'Landscaping & Lawn Care', description: 'Capture every seasonal lead and keep recurring routes full.' },
+    { name: 'Plumbing', description: 'Book urgent jobs instantly and keep technicians moving.' },
+    { name: 'Electrical', description: 'Respond faster to service requests and reduce admin overhead.' },
+    { name: 'HVAC', description: 'Manage high-volume calls and quote requests during peak seasons.' },
+    { name: 'Pest Control', description: 'Automate reminders and repeat service scheduling for retention.' },
   ];
 
   const plans: Plan[] = [
@@ -270,6 +300,29 @@ export default function ClosingSection() {
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
+      </div>
+
+      <div id="industries" className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 mb-24 scroll-mt-28">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary mb-4">Industries</h2>
+          <p className="text-lg text-text-secondary">Built for service teams in every local market.</p>
+        </div>
+
+        <div ref={industriesRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {industries.map((industry) => (
+            <div key={industry.name} className="glass-card rounded-2xl p-6 border border-white/10">
+              <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-indigo-500/15 text-indigo-300">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <h3 className="font-display font-semibold text-xl text-text-primary mb-2">{industry.name}</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">{industry.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-center text-sm text-text-secondary/85">
+          + many more industries supported
+        </p>
       </div>
 
       <div id="pricing" className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 mb-24 scroll-mt-28">
@@ -423,9 +476,12 @@ export default function ClosingSection() {
           </div>
           <p className="text-sm text-text-secondary">© Eagly.ai — AI operator for small business.</p>
           <div className="flex items-center gap-6">
-            <a href="/industries" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+            <button
+              onClick={() => document.getElementById('industries')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+            >
               Industries
-            </a>
+            </button>
             <a href="/privacy.html" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
               Privacy
             </a>
