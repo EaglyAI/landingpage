@@ -8,11 +8,14 @@ import PaymentSection from './sections/PaymentSection';
 import CalendarSection from './sections/CalendarSection';
 import OwnerSection from './sections/OwnerSection';
 import ClosingSection from './sections/ClosingSection';
+import { useIndustryMetadata } from './hooks/useIndustryMetadata';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const mainRef = useRef<HTMLDivElement>(null);
+
+  useIndustryMetadata();
 
   useEffect(() => {
     return () => {
