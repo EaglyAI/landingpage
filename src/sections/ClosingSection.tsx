@@ -3,13 +3,13 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap } from 'lucide-react';
+import { Check, Sparkles, ArrowRight, Globe, TrendingUp, Zap, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 type FeatureCategory = {
   title: string;
-  subtitle?: string;
+  description: string;
   items: string[];
 };
 
@@ -88,358 +88,107 @@ export default function ClosingSection() {
 
   const featureCategories: FeatureCategory[] = [
     {
-      title: 'Customer Interaction Layer',
-      subtitle: '(How customers interact with the business)',
-      items: [
-        'AI receptionist',
-        'Answer inbound calls automatically',
-        'Handle SMS conversations',
-        'Website chat assistant',
-        'WhatsApp messaging',
-        'Facebook Messenger integration',
-        'Lead intake',
-        'Ask customers questions automatically',
-        'Capture service requirements',
-        'Collect addresses',
-        'Capture photos/videos of issues',
-        'Qualify customer requests',
-        'Smart responses',
-        'Answer FAQs automatically',
-        'Provide pricing ranges',
-        'Provide availability instantly',
-        'Explain services',
-        'Missed call recovery',
-        'Auto SMS after missed call',
-        'Follow up with customer',
-        'Capture job details',
-        'Customer communication',
-        'Send appointment confirmations',
-        'Send reminders',
-        'Send reschedule links',
-        'Notify customers of delays',
-      ],
+      title: '24/7 AI Front Desk',
+      description: 'Never miss a lead or inbound question.',
+      items: ['Answers calls and texts', 'Captures lead details', 'Handles FAQs automatically'],
     },
     {
-      title: 'Scheduling & Operations',
-      subtitle: '(Core service business workflows)',
-      items: [
-        'Booking engine',
-        'Automatic appointment scheduling',
-        'Calendar integration',
-        'Availability management',
-        'Job duration estimation',
-        'Multi-location scheduling',
-        'Dispatch',
-        'Assign jobs to employees',
-        'Route optimization for field staff',
-        'Travel time calculations',
-        'Job management',
-        'Job status tracking',
-        'Service checklists',
-        'Job notes',
-        'Attach photos and documentation',
-        'Field operations',
-        'Mobile job dashboard for workers',
-        'On-site updates',
-        'Work completion confirmation',
-        'Rescheduling',
-        'Easy rescheduling through SMS',
-        'AI-managed cancellations',
-      ],
+      title: 'Smart Booking',
+      description: 'Turn conversations into confirmed jobs.',
+      items: ['Live availability checks', 'Automatic appointment scheduling', 'Instant confirmations'],
     },
     {
-      title: 'Payments & Invoicing',
-      items: [
-        'Invoices',
-        'Automatic invoice generation',
-        'Custom invoice templates',
-        'Line-item services',
-        'Payment collection',
-        'Deposit requests',
-        'Payment links',
-        'Online payment processing',
-        'Apple Pay / Google Pay',
-        'Payment automation',
-        'Automatic payment reminders',
-        'Late payment follow-ups',
-        'Subscriptions',
-        'Recurring service billing',
-        'Membership plans',
-        'Financial tracking',
-        'Revenue tracking',
-        'Payment status updates',
-        'Payment reconciliation',
-      ],
+      title: 'Payments & Invoices',
+      description: 'Get paid faster with less admin work.',
+      items: ['Send payment links', 'Auto-generate invoices', 'Track paid and unpaid jobs'],
     },
     {
-      title: 'Marketing & Growth',
-      items: [
-        'Website generation',
-        'AI-generated website',
-        'Service pages',
-        'SEO optimization',
-        'Local search pages',
-        'Lead capture',
-        'Website booking forms',
-        'AI chat lead capture',
-        'Reviews',
-        'Automatic review requests',
-        'Google review links',
-        'Reputation management',
-        'Promotions',
-        'Send promotions to past customers',
-        'Seasonal campaigns',
-        'Advertising',
-        'Google Ads management',
-        'Facebook / Instagram ads',
-        'AI-generated ad creatives',
-        'Local targeting',
-        'Customer retention',
-        'Rebooking reminders',
-        'Loyalty programs',
-      ],
+      title: 'Follow-ups on Autopilot',
+      description: 'Keep jobs moving without manual chasing.',
+      items: ['Appointment reminders', 'Missed-call recovery SMS', 'Post-job follow-up messages'],
     },
     {
-      title: 'CRM & Customer Management',
-      items: [
-        'Customer profiles',
-        'Contact details',
-        'Service history',
-        'Preferences',
-        'Customer segmentation',
-        'High-value customers',
-        'Frequent customers',
-        'Conversation history',
-        'SMS history',
-        'Call transcripts',
-        'Customer insights',
-        'Lifetime value',
-        'Repeat booking rates',
-      ],
+      title: 'Owner Command Center',
+      description: 'Run operations by asking, not clicking.',
+      items: ['“Show today’s schedule”', '“Who still owes payment?”', '“Rebook last month customers”'],
     },
     {
-      title: 'AI Automation Layer',
-      subtitle: '(The real magic of the system)',
-      items: [
-        'AI workflows',
-        'Lead follow-up automation',
-        'Quote follow-up automation',
-        'Payment reminder automation',
-        'Post-job follow-up',
-        'Intelligent decisions',
-        'Recommend pricing adjustments',
-        'Detect scheduling conflicts',
-        'Suggest marketing campaigns',
-        'Predictive operations',
-        'Forecast busy periods',
-        'Predict staffing needs',
-        'AI-generated documents',
-        'Quotes',
-        'Estimates',
-        'Proposals',
-      ],
-    },
-    {
-      title: 'Owner Command Interface',
-      subtitle: '(The biggest product differentiator)',
-      items: [
-        'Owners can run the business using natural language or voice',
-        '“Show tomorrow’s schedule.”',
-        '“Send a promotion to past customers.”',
-        '“Raise prices by 5%.”',
-        '“Why are bookings down this week?”',
-        '“Which customers haven’t paid?”',
-        '“Book John for Friday.”',
-        'Voice interaction',
-        'Voice notes to control business',
-        'AI transcription',
-        'AI execution of commands',
-        'Chat interface',
-        'SMS commands',
-        'Mobile messaging interface',
-      ],
-    },
-    {
-      title: 'Business Intelligence',
-      subtitle: '(The dashboard replacement)',
-      items: [
-        'Revenue analytics',
-        'Daily revenue',
-        'Weekly revenue trends',
-        'Lead analytics',
-        'Lead sources',
-        'Conversion rates',
-        'Marketing analytics',
-        'Ad ROI',
-        'Campaign performance',
-        'Operations insights',
-        'Missed call rates',
-        'Booking speed',
-        'AI recommendations',
-        'Improve response time',
-        'Increase pricing',
-        'Reduce cancellations',
-      ],
-    },
-    {
-      title: 'Knowledge & Business Memory',
-      items: [
-        'Business knowledge base',
-        'Service descriptions',
-        'Pricing rules',
-        'Policies',
-        'AI learning',
-        'Learns customer patterns',
-        'Learns pricing patterns',
-        'Context memory',
-        'Remembers past conversations',
-        'Remembers customer preferences',
-      ],
-    },
-    {
-      title: 'Website & Online Presence',
-      items: [
-        'Website creation',
-        'Automatic site generation',
-        'Hosting included',
-        'SEO',
-        'Local SEO pages',
-        'Google indexing',
-        'Online booking',
-        'Booking widget',
-        'Live availability',
-        'AI chat widget',
-        'Customer interaction on website',
-      ],
-    },
-    {
-      title: 'Integrations',
-      items: [
-        'Payments',
-        'Stripe',
-        'Square',
-        'Accounting',
-        'QuickBooks',
-        'Xero',
-        'Calendar',
-        'Google Calendar',
-        'Outlook',
-        'Marketing',
-        'Google Ads',
-        'Meta Ads',
-        'Messaging',
-        'SMS',
-        'WhatsApp',
-      ],
-    },
-    {
-      title: 'Platform Infrastructure',
-      items: [
-        'Business provisioning',
-        'Auto create CRM',
-        'Auto create workflows',
-        'Multi-user support',
-        'Staff accounts',
-        'Role permissions',
-        'Data security',
-        'Encrypted communication',
-        'Audit logs',
-        'Reliability',
-        'Workflow retries',
-        'Error recovery',
-      ],
-    },
-    {
-      title: 'Future Expansion Features',
-      subtitle: '(Investors love seeing this roadmap)',
-      items: [
-        'Staffing & HR',
-        'Employee scheduling',
-        'Payroll integration',
-        'Financing',
-        'Small business loans',
-        'Invoice factoring',
-        'Procurement',
-        'Order supplies automatically',
-        'Insurance',
-        'Business insurance offers',
-      ],
+      title: 'Growth Essentials',
+      description: 'Bring in more business automatically.',
+      items: ['Review request campaigns', 'Simple website with booking', 'Lead source tracking'],
     },
   ];
 
   const plans = [
     {
-      name: 'Starter',
-      price: '$49',
+      name: 'Free',
+      price: '$0',
       period: '/mo',
-      description: 'Perfect for solo operators getting started',
-      features: [
-        'AI receptionist',
-        'Unlimited bookings',
-        'Business website',
-        'Digital presence setup',
-        'Basic payments',
-        'Email support',
-      ],
-      cta: 'Start free',
+      description: 'For trying Eagly and handling the basics',
+      features: ['AI receptionist', 'Up to 25 monthly conversations', 'Basic booking flow', 'Email support'],
+      cta: 'Get started',
+      highlighted: false,
+    },
+    {
+      name: 'Starter',
+      price: '$99',
+      period: '/mo',
+      description: 'For solo operators ready to automate daily tasks',
+      features: ['Unlimited conversations', 'Auto-booking + reminders', 'Payments and invoices', 'Website booking widget'],
+      cta: 'Start Starter',
       highlighted: false,
     },
     {
       name: 'Growth',
-      price: '$149',
+      price: '$249',
       period: '/mo',
-      description: 'For businesses ready to scale',
-      features: [
-        'Everything in Starter',
-        'Advanced scheduling',
-        'Customer follow-ups',
-        'Review requests',
-        'Basic analytics',
-        'Priority support',
-      ],
-      cta: 'Start free',
+      description: 'For growing teams who want stronger automation',
+      features: ['Everything in Starter', 'Review and follow-up automation', 'Team routing and assignment', 'Performance insights'],
+      cta: 'Start Growth',
       highlighted: true,
     },
     {
       name: 'Autopilot',
-      price: '$349',
+      price: '$499',
       period: '/mo',
-      description: 'Full AI automation for growing teams',
-      features: [
-        'Everything in Growth',
-        'Multi-user access',
-        'Advanced analytics',
-        'Marketing automation',
-        'Custom integrations',
-        'Dedicated account manager',
-      ],
-      cta: 'Start free',
+      description: 'For businesses wanting full AI-operated workflows',
+      features: ['Everything in Growth', 'Advanced workflow automations', 'Priority support', 'Dedicated onboarding'],
+      cta: 'Start Autopilot',
       highlighted: false,
     },
   ];
 
   return (
-    <section ref={sectionRef} className="relative bg-space-dark py-24">
-      <div id="features" className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+    <section ref={sectionRef} className="relative py-24">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(/starfield-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-space-black/70" />
+      </div>
+
+      <div id="features" className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 mb-24 scroll-mt-28">
         <div className="text-center mb-16">
           <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary mb-4">
             Everything you need
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            A complete AI operating system for service businesses.
+            The most important tools to run and grow your service business with AI.
           </p>
         </div>
 
-        <div ref={featuresRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div ref={featuresRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
           {featureCategories.map((category, index) => (
             <div key={index} className="glass-card rounded-2xl p-6 hover:bg-white/5 transition-colors">
               <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-indigo-500" />
               </div>
-              <h3 className="font-display font-semibold text-xl text-text-primary mb-1">{category.title}</h3>
-              {category.subtitle && (
-                <p className="text-xs text-text-secondary mb-4">{category.subtitle}</p>
-              )}
+              <h3 className="font-display font-semibold text-xl text-text-primary mb-2">{category.title}</h3>
+              <p className="text-sm text-text-secondary mb-4">{category.description}</p>
               <ul className="space-y-2">
                 {category.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="text-sm text-text-secondary leading-relaxed">
@@ -450,15 +199,25 @@ export default function ClosingSection() {
             </div>
           ))}
         </div>
+
+        <div className="flex justify-center">
+          <a
+            href="/features.html"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-text-primary hover:bg-white/5 transition-colors"
+          >
+            See all features
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
       </div>
 
-      <div id="pricing" className="max-w-5xl mx-auto px-6 lg:px-12 mb-24">
+      <div id="pricing" className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 mb-24 scroll-mt-28">
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary mb-4">Simple pricing</h2>
-          <p className="text-lg text-text-secondary">Start free. Scale as you grow.</p>
+          <p className="text-lg text-text-secondary">Start free. Upgrade when you are ready.</p>
         </div>
 
-        <div ref={pricingRef} className="grid md:grid-cols-3 gap-6">
+        <div ref={pricingRef} className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -502,7 +261,7 @@ export default function ClosingSection() {
         </div>
       </div>
 
-      <div id="signup" className="max-w-xl mx-auto px-6 lg:px-12">
+      <div id="signup" className="relative z-10 max-w-xl mx-auto px-6 lg:px-12">
         <div ref={signupRef} className="glass-panel rounded-2xl p-8 md:p-10">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
@@ -564,7 +323,7 @@ export default function ClosingSection() {
         </div>
       </div>
 
-      <footer className="max-w-6xl mx-auto px-6 lg:px-12 mt-24 pt-12 border-t border-white/5">
+      <footer className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 mt-24 pt-12 border-t border-white/5">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-indigo-500" />

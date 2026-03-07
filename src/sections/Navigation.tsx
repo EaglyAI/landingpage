@@ -17,7 +17,9 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = 110;
+      const top = element.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   };
 
