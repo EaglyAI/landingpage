@@ -389,13 +389,9 @@ export default function ClosingSection() {
               </div>
 
               <Button
-                variant={plan.highlighted ? 'default' : 'outline'}
+                variant="default"
                 onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
-                className={`w-full rounded-full py-5 font-medium mt-auto ${
-                  plan.highlighted
-                    ? 'bg-indigo-500 hover:bg-indigo-600 text-white hover:shadow-glow'
-                    : 'border-white/20 text-text-primary hover:bg-white/5'
-                }`}
+                className="w-full rounded-full py-5 font-medium mt-auto bg-indigo-500 hover:bg-indigo-600 text-white hover:shadow-glow"
               >
                 {plan.cta}
               </Button>

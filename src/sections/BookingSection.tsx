@@ -50,8 +50,9 @@ export default function BookingSection() {
 
   return (
     <section
+      id="bookings"
       ref={sectionRef}
-      className="relative py-24"
+      className="relative py-24 scroll-mt-28"
     >
       {/* Background */}
       <div
