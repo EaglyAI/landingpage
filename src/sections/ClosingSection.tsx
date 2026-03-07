@@ -423,6 +423,9 @@ export default function ClosingSection() {
           </div>
           <p className="text-sm text-text-secondary">© Eagly.ai — AI operator for small business.</p>
           <div className="flex items-center gap-6">
+            <a href="/industries" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+              Industries
+            </a>
             <a href="/privacy.html" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
               Privacy
             </a>
