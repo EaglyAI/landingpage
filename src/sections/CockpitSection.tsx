@@ -163,8 +163,8 @@ export default function CockpitSection({ className = '' }: CockpitSectionProps) 
             ref={subheadlineRef}
             className="text-base md:text-lg text-text-secondary max-w-xl text-center mt-4"
           >
-            Answer calls, book jobs, send invoices, collect payments, and run
-            marketing — automatically.
+            Answer calls, book jobs, send invoices, collect payments, and follow up
+            with customers — automatically.
           </p>
         </div>
 
