@@ -5,108 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Features | Eagly</title>
     <style>
-      :root {
-        color-scheme: dark;
-      }
+      :root { color-scheme: dark; }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
         color: #f4f7ff;
-        background: linear-gradient(rgba(8, 10, 20, 0.82), rgba(8, 10, 20, 0.88)), url('/starfield-bg.jpg') center/cover fixed;
+        background:
+          radial-gradient(circle at 12% 12%, rgba(107, 123, 255, 0.22), transparent 38%),
+          radial-gradient(circle at 85% 18%, rgba(45, 198, 255, 0.14), transparent 30%),
+          linear-gradient(rgba(6, 8, 16, 0.92), rgba(6, 8, 16, 0.95)),
+          url('/starfield-bg.jpg') center/cover no-repeat fixed;
+        min-height: 100vh;
       }
-      .wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 56px 24px 72px;
+      .wrap { max-width: 1200px; margin: 0 auto; padding: 56px 24px 80px; }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 26px;
+        color: #d5ddff;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.05);
+        border-radius: 999px;
+        padding: 10px 16px;
       }
       h1 {
-        margin: 0 0 12px;
-        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 0 0 10px;
+        line-height: 1.02;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        letter-spacing: -0.03em;
       }
-      p.lead {
-        margin: 0 0 32px;
-        color: #b6bed3;
-      }
-      .back {
-        display: inline-block;
-        margin-bottom: 28px;
-        color: #c7d1ff;
-        text-decoration: none;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 16px;
-      }
+      .lead { margin: 0 0 14px; color: #bec7df; font-size: 1.06rem; max-width: 760px; }
+      .sub { margin: 0 0 34px; color: #98a5cb; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
       .card {
         border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.04);
-        backdrop-filter: blur(8px);
-        border-radius: 16px;
-        padding: 18px;
+        background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 12px 42px rgba(0,0,0,0.28);
       }
-      h2 {
-        font-size: 1.1rem;
-        margin: 0 0 10px;
+      h2 { margin: 0 0 6px; font-size: 1.12rem; letter-spacing: -0.01em; }
+      .tag {
+        display: inline-block;
+        margin: 0 0 12px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #8ab6ff;
       }
-      ul { margin: 0; padding-left: 18px; color: #d8deef; }
-      li { margin: 6px 0; }
+      ul { margin: 0; padding-left: 18px; color: #d7deef; }
+      li { margin: 7px 0; line-height: 1.45; }
+      .examples { margin-top: 8px; padding: 12px; border-radius: 12px; background: rgba(96,111,255,0.12); border: 1px solid rgba(160,170,255,0.24); }
+      .examples p { margin: 0 0 8px; font-size: 0.8rem; text-transform: uppercase; color: #c8d1ff; letter-spacing: 0.08em; }
+      .examples li { color: #ecf1ff; }
+      @media (max-width: 700px) { .wrap { padding: 38px 16px 64px; } .card { padding: 18px; } }
     </style>
   </head>
   <body>
     <main class="wrap">
       <a class="back" href="/">← Back to main page</a>
-      <h1>All Features</h1>
-      <p class="lead">The complete Eagly capability set for service businesses.</p>
+      <h1>Eagly Features</h1>
+      <p class="lead">A complete operating system for service businesses — from the first customer message to payment, growth, and intelligence.</p>
+      <p class="sub">Everything below can be combined into one AI-run workflow.</p>
 
       <section class="grid">
         <article class="card">
-          <h2>Customer communication</h2>
+          <span class="tag">1. Customer Interaction Layer</span>
+          <h2>How customers interact with the business</h2>
           <ul>
-            <li>AI receptionist for calls and text</li>
-            <li>Missed-call recovery</li>
-            <li>FAQ and quote pre-qualification</li>
+            <li>AI receptionist</li><li>Answer inbound calls automatically</li><li>Handle SMS conversations</li><li>Website chat assistant</li><li>WhatsApp messaging</li><li>Facebook Messenger integration</li><li>Lead intake</li><li>Ask customers questions automatically</li><li>Capture service requirements</li><li>Collect addresses</li><li>Capture photos/videos of issues</li><li>Qualify customer requests</li><li>Smart responses</li><li>Answer FAQs automatically</li><li>Provide pricing ranges</li><li>Provide availability instantly</li><li>Explain services</li><li>Missed call recovery</li><li>Auto SMS after missed call</li><li>Follow up with customer</li><li>Capture job details</li><li>Customer communication</li><li>Send appointment confirmations</li><li>Send reminders</li><li>Send reschedule links</li><li>Notify customers of delays</li>
           </ul>
         </article>
+
         <article class="card">
-          <h2>Booking and scheduling</h2>
+          <span class="tag">2. Scheduling & Operations</span>
+          <h2>Core service business workflows</h2>
           <ul>
-            <li>Live availability checks</li>
-            <li>Automatic appointment booking</li>
-            <li>Reschedule and reminder flows</li>
+            <li>Booking engine</li><li>Automatic appointment scheduling</li><li>Calendar integration</li><li>Availability management</li><li>Job duration estimation</li><li>Multi-location scheduling</li><li>Dispatch</li><li>Assign jobs to employees</li><li>Route optimization for field staff</li><li>Travel time calculations</li><li>Job management</li><li>Job status tracking</li><li>Service checklists</li><li>Job notes</li><li>Attach photos and documentation</li><li>Field operations</li><li>Mobile job dashboard for workers</li><li>On-site updates</li><li>Work completion confirmation</li><li>Rescheduling</li><li>Easy rescheduling through SMS</li><li>AI-managed cancellations</li>
           </ul>
         </article>
+
         <article class="card">
-          <h2>Job operations</h2>
+          <span class="tag">3. Payments & Invoicing</span>
+          <h2>Collect and reconcile revenue</h2>
           <ul>
-            <li>Team assignment and routing</li>
-            <li>Job status tracking</li>
-            <li>Field notes and completion updates</li>
+            <li>Invoices</li><li>Automatic invoice generation</li><li>Custom invoice templates</li><li>Line-item services</li><li>Payment collection</li><li>Deposit requests</li><li>Payment links</li><li>Online payment processing</li><li>Apple Pay / Google Pay</li><li>Payment automation</li><li>Automatic payment reminders</li><li>Late payment follow-ups</li><li>Subscriptions</li><li>Recurring service billing</li><li>Membership plans</li><li>Financial tracking</li><li>Revenue tracking</li><li>Payment status updates</li><li>Payment reconciliation</li>
           </ul>
         </article>
+
         <article class="card">
-          <h2>Payments and invoicing</h2>
+          <span class="tag">4. Marketing & Growth</span>
+          <h2>Acquire, convert, and retain customers</h2>
           <ul>
-            <li>Invoice creation and delivery</li>
-            <li>Online payment links</li>
-            <li>Payment reminders and status tracking</li>
+            <li>Website generation</li><li>AI-generated website</li><li>Service pages</li><li>SEO optimization</li><li>Local search pages</li><li>Lead capture</li><li>Website booking forms</li><li>AI chat lead capture</li><li>Reviews</li><li>Automatic review requests</li><li>Google review links</li><li>Reputation management</li><li>Promotions</li><li>Send promotions to past customers</li><li>Seasonal campaigns</li><li>Advertising</li><li>Google Ads management</li><li>Facebook / Instagram ads</li><li>AI-generated ad creatives</li><li>Local targeting</li><li>Customer retention</li><li>Rebooking reminders</li><li>Loyalty programs</li>
           </ul>
         </article>
+
         <article class="card">
-          <h2>Marketing and retention</h2>
+          <span class="tag">5. CRM & Customer Management</span>
+          <h2>Complete customer context in one place</h2>
           <ul>
-            <li>Review request campaigns</li>
-            <li>Rebooking and follow-up campaigns</li>
-            <li>Lead source and conversion tracking</li>
+            <li>Customer profiles</li><li>Contact details</li><li>Service history</li><li>Preferences</li><li>Customer segmentation</li><li>High-value customers</li><li>Frequent customers</li><li>Conversation history</li><li>SMS history</li><li>call transcripts</li><li>Customer insights</li><li>Lifetime value</li><li>Repeat booking rates</li>
           </ul>
         </article>
+
         <article class="card">
-          <h2>Owner command center</h2>
+          <span class="tag">6. AI Automation Layer</span>
+          <h2>The real magic of the system</h2>
           <ul>
-            <li>Natural language business control</li>
-            <li>Daily performance summaries</li>
-            <li>Actionable AI recommendations</li>
+            <li>AI workflows</li><li>Lead follow-up automation</li><li>Quote follow-up automation</li><li>Payment reminder automation</li><li>Post-job follow-up</li><li>Intelligent decisions</li><li>Recommend pricing adjustments</li><li>Detect scheduling conflicts</li><li>Suggest marketing campaigns</li><li>Predictive operations</li><li>Forecast busy periods</li><li>Predict staffing needs</li><li>AI-generated documents</li><li>Quotes</li><li>estimates</li><li>proposals</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">7. Owner Command Interface</span>
+          <h2>Run the business with natural language</h2>
+          <ul>
+            <li>Voice interaction</li><li>Voice notes to control business</li><li>AI transcription</li><li>AI execution of commands</li><li>Chat interface</li><li>SMS commands</li><li>mobile messaging interface</li>
+          </ul>
+          <div class="examples">
+            <p>Examples</p>
+            <ul>
+              <li>“Show tomorrow’s schedule.”</li>
+              <li>“Send a promotion to past customers.”</li>
+              <li>“Raise prices by 5%.”</li>
+              <li>“Why are bookings down this week?”</li>
+              <li>“Which customers haven’t paid?”</li>
+              <li>“Book John for Friday.”</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">8. Business Intelligence</span>
+          <h2>The dashboard replacement</h2>
+          <ul>
+            <li>Revenue analytics</li><li>Daily revenue</li><li>Weekly revenue trends</li><li>Lead analytics</li><li>Lead sources</li><li>conversion rates</li><li>Marketing analytics</li><li>Ad ROI</li><li>campaign performance</li><li>Operations insights</li><li>Missed call rates</li><li>booking speed</li><li>AI recommendations</li><li>Improve response time</li><li>Increase pricing</li><li>reduce cancellations</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">9. Knowledge & Business Memory</span>
+          <h2>Long-term business context</h2>
+          <ul>
+            <li>Business knowledge base</li><li>Service descriptions</li><li>pricing rules</li><li>policies</li><li>AI learning</li><li>Learns customer patterns</li><li>Learns pricing patterns</li><li>Context memory</li><li>remembers past conversations</li><li>remembers customer preferences</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">10. Website & Online Presence</span>
+          <h2>Launch and convert online</h2>
+          <ul>
+            <li>Website creation</li><li>automatic site generation</li><li>hosting included</li><li>SEO</li><li>local SEO pages</li><li>Google indexing</li><li>Online booking</li><li>booking widget</li><li>live availability</li><li>AI chat widget</li><li>customer interaction on website</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">11. Integrations</span>
+          <h2>Connect your existing stack</h2>
+          <ul>
+            <li>Payments</li><li>Stripe</li><li>Square</li><li>Accounting</li><li>QuickBooks</li><li>Xero</li><li>Calendar</li><li>Google Calendar</li><li>Outlook</li><li>Marketing</li><li>Google Ads</li><li>Meta Ads</li><li>Messaging</li><li>SMS</li><li>WhatsApp</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">12. Platform Infrastructure</span>
+          <h2>Reliability and security by default</h2>
+          <ul>
+            <li>Business provisioning</li><li>auto create CRM</li><li>auto create workflows</li><li>Multi-user support</li><li>staff accounts</li><li>role permissions</li><li>Data security</li><li>encrypted communication</li><li>audit logs</li><li>Reliability</li><li>workflow retries</li><li>error recovery</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag">13. Future Expansion Features</span>
+          <h2>Roadmap upside for growth and investors</h2>
+          <ul>
+            <li>Staffing &amp; HR</li><li>employee scheduling</li><li>payroll integration</li><li>Financing</li><li>small business loans</li><li>invoice factoring</li><li>Procurement</li><li>order supplies automatically</li><li>Insurance</li><li>business insurance offers</li>
           </ul>
         </article>
       </section>
