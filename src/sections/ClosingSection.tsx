@@ -34,6 +34,8 @@ export default function ClosingSection() {
   const [businessName, setBusinessName] = useState('');
   const [phone, setPhone] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -85,17 +87,38 @@ export default function ClosingSection() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
-    const subject = encodeURIComponent('Activate your AI - New lead');
-    const body = encodeURIComponent(
-      `Email: ${email}\nBusiness name: ${businessName || 'Not provided'}\nPhone: ${phone || 'Not provided'}`
-    );
+    try {
+      setIsSubmitting(true);
+      setSubmitError(null);
 
-    window.location.href = `mailto:info@eagly.ai?subject=${subject}&body=${body}`;
-    setIsSubmitted(true);
+      const response = await fetch('https://formsubmit.co/ajax/info@eagly.ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: 'Activate your AI - New lead',
+          email,
+          businessName: businessName || 'Not provided',
+          phone: phone || 'Not provided',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again in a minute.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const featureCategories: FeatureCategory[] = [
@@ -137,7 +160,7 @@ export default function ClosingSection() {
       price: '$99',
       period: '/mo',
       description: 'Built for solo operators and early-stage businesses.',
-      target: ['solo operators', 'early-stage businesses'],
+      target: ['solo owner-operators', 'new service businesses'],
       includes: [
         'AI receptionist',
         'missed call recovery',
@@ -156,7 +179,7 @@ export default function ClosingSection() {
       price: '$249',
       period: '/mo',
       description: 'Most customers land here for deeper automation and team support.',
-      target: ['growing service teams', 'operators scaling beyond manual workflows'],
+      target: ['growing home service teams', 'businesses moving beyond manual admin'],
       includes: [
         'Everything in Starter',
         'AI voice answering',
@@ -166,6 +189,7 @@ export default function ClosingSection() {
         'employee scheduling',
         'analytics',
         'integrations',
+        'automated follow-up campaigns',
       ],
       limits: ['5 users', '5,000 conversations'],
       cta: 'Start Growth',
@@ -175,8 +199,8 @@ export default function ClosingSection() {
       name: 'Pro',
       price: '$499',
       period: '/mo',
-      description: 'For businesses doing $1M+ revenue and managing complex operations.',
-      target: ['businesses doing $1M+ revenue'],
+      description: 'For established service businesses running multiple teams and locations.',
+      target: ['multi-team operations', 'multi-location service businesses'],
       includes: [
         'Everything in Growth',
         'dispatch & route optimization',
@@ -184,6 +208,9 @@ export default function ClosingSection() {
         'advanced marketing automation',
         'advanced analytics',
         'priority support',
+        'custom workflows',
+        'white-glove onboarding',
+        'dedicated success manager',
       ],
       limits: ['20 users', '20,000 conversations'],
       cta: 'Start Pro',
@@ -255,7 +282,7 @@ export default function ClosingSection() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`glass-card rounded-2xl p-6 ${plan.highlighted ? 'border-indigo-500/50 shadow-glow relative' : ''}`}
+              className={`glass-card rounded-2xl p-6 flex flex-col h-full ${plan.highlighted ? 'border-indigo-500/50 shadow-glow relative' : ''}`}
             >
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -272,7 +299,7 @@ export default function ClosingSection() {
               </div>
               <p className="text-sm text-text-secondary mb-5">{plan.description}</p>
 
-              <div className="mb-5">
+              <div className="mb-5 min-h-[76px]">
                 <p className="text-xs uppercase tracking-wide text-text-secondary/80 mb-2">Target</p>
                 <ul className="space-y-1.5">
                   {plan.target.map((item, tIndex) => (
@@ -284,12 +311,12 @@ export default function ClosingSection() {
                 </ul>
               </div>
 
-              <div className="mb-5">
+              <div className="mb-5 flex-1 min-h-[260px]">
                 <p className="text-xs uppercase tracking-wide text-text-secondary/80 mb-2">Includes</p>
                 <ul className="space-y-2">
                   {plan.includes.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3">
-                      <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                    <li key={fIndex} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-text-primary">{feature}</span>
                     </li>
                   ))}
@@ -311,7 +338,7 @@ export default function ClosingSection() {
               <Button
                 variant={plan.highlighted ? 'default' : 'outline'}
                 onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
-                className={`w-full rounded-full py-5 font-medium ${
+                className={`w-full rounded-full py-5 font-medium mt-auto ${
                   plan.highlighted
                     ? 'bg-indigo-500 hover:bg-indigo-600 text-white hover:shadow-glow'
                     : 'border-white/20 text-text-primary hover:bg-white/5'
@@ -371,11 +398,13 @@ export default function ClosingSection() {
               <Button
                 type="submit"
                 size="lg"
+                disabled={isSubmitting}
                 className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-6 rounded-full text-base transition-all hover:shadow-glow group"
               >
-                Activate your AI
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? 'Sending...' : 'Activate your AI'}
+                {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
               </Button>
+              {submitError && <p className="text-sm text-red-300 text-center">{submitError}</p>}
             </form>
           )}
 

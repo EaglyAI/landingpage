@@ -9,14 +9,32 @@
       * { box-sizing: border-box; }
       body {
         margin: 0;
+        position: relative;
         font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
         color: #f4f7ff;
-        background:
-          radial-gradient(circle at 12% 12%, rgba(107, 123, 255, 0.22), transparent 38%),
-          radial-gradient(circle at 85% 18%, rgba(45, 198, 255, 0.14), transparent 30%),
-          linear-gradient(rgba(6, 8, 16, 0.92), rgba(6, 8, 16, 0.95)),
-          url('/starfield-bg.jpg') center/cover no-repeat fixed;
+        background: #05060b url('/starfield-bg.jpg') center/cover no-repeat fixed;
         min-height: 100vh;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background:
+          radial-gradient(circle at 14% 12%, rgba(79, 70, 229, 0.24), transparent 38%),
+          radial-gradient(circle at 84% 18%, rgba(34, 211, 238, 0.14), transparent 30%),
+          linear-gradient(rgba(5, 6, 11, 0.82), rgba(5, 6, 11, 0.9));
+      }
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.04;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       }
       .wrap { max-width: 1200px; margin: 0 auto; padding: 56px 24px 80px; }
       .back {
@@ -182,7 +200,7 @@
 
         <article class="card">
           <span class="tag">13. Future Expansion Features</span>
-          <h2>Roadmap upside for growth and investors</h2>
+          <h2>Roadmap upside for growing service businesses</h2>
           <ul>
             <li>Staffing &amp; HR</li><li>employee scheduling</li><li>payroll integration</li><li>Financing</li><li>small business loans</li><li>invoice factoring</li><li>Procurement</li><li>order supplies automatically</li><li>Insurance</li><li>business insurance offers</li>
           </ul>
