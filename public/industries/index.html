@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industries | Eagly</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        position: relative;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: #f4f7ff;
+        background: #05060b url('/starfield-bg.jpg') center/cover no-repeat fixed;
+        min-height: 100vh;
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background:
+          radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.22), transparent 38%),
+          radial-gradient(circle at 88% 18%, rgba(6, 182, 212, 0.16), transparent 30%),
+          linear-gradient(rgba(5, 6, 11, 0.8), rgba(5, 6, 11, 0.92));
+      }
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.04;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 28px;
+        color: #d5ddff;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 999px;
+        padding: 10px 16px;
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+      .back:hover {
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      h1 {
+        margin: 0 0 10px;
+        line-height: 1.02;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        letter-spacing: -0.03em;
+      }
+      .lead {
+        margin: 0 0 34px;
+        color: #bec7df;
+        font-size: 1.06rem;
+        max-width: 760px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        min-height: 230px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 12px 42px rgba(0, 0, 0, 0.28);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(129, 140, 248, 0.45);
+        box-shadow: 0 20px 44px rgba(27, 33, 56, 0.55);
+        background: linear-gradient(165deg, rgba(129, 140, 248, 0.2), rgba(255, 255, 255, 0.05));
+      }
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #93c5fd;
+      }
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.24rem;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0;
+        color: #d7deef;
+        line-height: 1.5;
+      }
+      .cta {
+        margin-top: auto;
+        padding-top: 18px;
+        color: #c7d2fe;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+      @media (max-width: 700px) {
+        .wrap {
+          padding: 38px 16px 64px;
+        }
+        .card {
+          min-height: 210px;
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <a class="back" href="/">← Back to main page</a>
+      <h1>Industries we automate</h1>
+      <p class="lead">Purpose-built AI workflows for local service businesses. Each setup is tuned to increase booked jobs, reduce missed leads, and speed up operations.</p>
+
+      <section class="grid">
+        <a class="card" href="/industries/cleaning-services">
+          <span class="eyebrow">Industry</span>
+          <h2>Cleaning Services</h2>
+          <p>Automate quote capture, recurring booking reminders, and post-job review requests to raise repeat revenue with less admin time.</p>
+          <span class="cta">Open industry page → /industries/cleaning-services</span>
+        </a>
+
+        <a class="card" href="/industries/landscaping-lawn-care">
+          <span class="eyebrow">Industry</span>
+          <h2>Landscaping &amp; Lawn Care</h2>
+          <p>Turn seasonal inquiries into scheduled routes with AI lead follow-up, weather-aware rescheduling, and upsell automation.</p>
+          <span class="cta">Open industry page → /industries/landscaping-lawn-care</span>
+        </a>
+
+        <a class="card" href="/industries/plumbing">
+          <span class="eyebrow">Industry</span>
+          <h2>Plumbing</h2>
+          <p>Prioritize urgent calls, auto-qualify job details, and dispatch faster so your team books more emergency and maintenance work.</p>
+          <span class="cta">Open industry page → /industries/plumbing</span>
+        </a>
+
+        <a class="card" href="/industries/pest-control">
+          <span class="eyebrow">Industry</span>
+          <h2>Pest Control</h2>
+          <p>Streamline recurring treatments with automated reminders, subscription follow-ups, and technician-ready intake summaries.</p>
+          <span class="cta">Open industry page → /industries/pest-control</span>
+        </a>
+
+        <a class="card" href="/industries/hvac">
+          <span class="eyebrow">Industry</span>
+          <h2>HVAC</h2>
+          <p>Capture high-intent repair leads instantly and keep maintenance memberships active through proactive outreach workflows.</p>
+          <span class="cta">Open industry page → /industries/hvac</span>
+        </a>
+
+        <a class="card" href="/industries/electricians">
+          <span class="eyebrow">Industry</span>
+          <h2>Electricians</h2>
+          <p>Reduce response lag with instant scheduling options, smart estimate follow-up, and centralized customer communication.</p>
+          <span class="cta">Open industry page → /industries/electricians</span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
