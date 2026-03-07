@@ -46,16 +46,16 @@ export default function HeroSection() {
 
       {/* Content */}
       <div ref={contentRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto py-32">
-        <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
-          The AI that runs your business.
+        <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-text-primary mb-6">
+          The AI that runs your business
         </h1>
 
-        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-4 leading-relaxed">
+        <p className="font-sans text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-4 leading-relaxed">
           Answer calls, book jobs, send invoices, collect payments, and run
           marketing — automatically.
         </p>
 
-        <p className="text-sm md:text-base text-text-secondary/90 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="font-sans text-lg md:text-xl text-text-secondary/90 max-w-3xl mx-auto mb-10 leading-relaxed">
           Built for cleaning companies, landscapers, plumbers, HVAC services,
           and other service businesses.
         </p>
