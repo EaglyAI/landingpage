@@ -46,13 +46,12 @@ export default function HeroSection() {
       {/* Content */}
       <div ref={contentRef} className="relative z-10 text-center px-6 max-w-4xl mx-auto py-32">
         <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6">
-          Talk to your business.
-          <br />
-          <span className="text-gradient">It runs itself.</span>
+          The AI that runs your business.
         </h1>
 
         <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-          AI receptionist, booking, and payments—working 24/7.
+          Answer calls, book jobs, send invoices, collect payments, and run
+          marketing — automatically.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

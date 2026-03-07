@@ -156,16 +156,15 @@ export default function CockpitSection({ className = '' }: CockpitSectionProps) 
         <div className="flex-1 flex flex-col items-center justify-center px-8">
           <div ref={headlineRef} className="text-center">
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text-primary mb-4">
-              Talk to your business.
-              <br />
-              <span className="text-gradient">It runs itself.</span>
+              The AI that runs your business.
             </h2>
           </div>
           <p
             ref={subheadlineRef}
             className="text-base md:text-lg text-text-secondary max-w-xl text-center mt-4"
           >
-            AI receptionist, booking, and payments—working 24/7.
+            Answer calls, book jobs, send invoices, collect payments, and run
+            marketing — automatically.
           </p>
         </div>
 
