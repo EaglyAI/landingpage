@@ -200,7 +200,7 @@ export default function ClosingSection() {
         'review requests',
         'AI website',
       ],
-      limits: ['1 user', '1 phone number', '~1,000 conversations'],
+      limits: ['1 user', '~1,000 conversations'],
       cta: 'Start Starter',
       highlighted: false,
     },
