@@ -51,8 +51,8 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-          Answer calls, book jobs, send invoices, collect payments, and run
-          marketing — automatically.
+          Answer calls, book jobs, send invoices, collect payments, and follow up
+          with customers — automatically.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
