@@ -70,6 +70,15 @@ export default function CalendarSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary mb-4">
+            Schedule stays full
+          </h2>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            Calendar, reminders, and follow-ups stay in sync automatically.
+          </p>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
           <div
             ref={leftCardRef}
