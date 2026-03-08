@@ -70,6 +70,15 @@ export default function OwnerSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-12">
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary mb-4">
+            Owner commands in one message
+          </h2>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            Tell Eagly what to do once and it handles every follow-up step.
+          </p>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
           <div
             ref={leftCardRef}
